@@ -1,6 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { NavController, ToastController } from 'ionic-angular';
 import { DicasPage } from '../dicas/dicas';
+import { RegisterPage } from '../register/register';
 
 @Component({
 	selector: 'page-home',
@@ -27,5 +28,9 @@ export class HomePage {
 			toast.setMessage('Usuário ou senha incorretos');
 			toast.present();
 		}
+	}
+
+	cadastrar(){
+		this.navCtrl.push(RegisterPage);
 	}
 }
