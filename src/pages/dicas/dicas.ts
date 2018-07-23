@@ -1,25 +1,35 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ToastController} from 'ionic-angular';
+import { AngularFireAuth } from 'angularfire2/auth';
+import { HomePage } from '../home/home';
 
-/**
- * Generated class for the DicasPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({
-  selector: 'page-dicas',
-  templateUrl: 'dicas.html',
+	selector: 'page-dicas',
+	templateUrl: 'dicas.html',
 })
 export class DicasPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
+	email: String;
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad DicasPage');
-  }
+	constructor(public navCtrl: NavController, 
+				public navParams: NavParams, 
+				public fire: AngularFireAuth, 
+				public toatsCtrl: ToastController) {
+		
+		this.email = fire.auth.currentUser.email;
+					
+	}
 
+	logout(){
+
+		let toast = this.toatsCtrl.create({duration: 3000, position: 'bottom'});
+
+		this.fire.auth.signOut();
+		toast.setMessage('Deslogado com sucesso!');
+		toast.present();
+
+		this.navCtrl.setRoot(HomePage);
+	}
 }
