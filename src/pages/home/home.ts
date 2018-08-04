@@ -2,6 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 import { NavController, ToastController } from 'ionic-angular';
 import { DicasPage } from '../dicas/dicas';
 import { RegisterPage } from '../register/register';
+import { RecuperarPage } from '../recuperar/recuperar';
 
 import { AngularFireAuth } from 'angularfire2/auth';
 
@@ -56,5 +57,8 @@ export class HomePage {
 
 	cadastrar(){
 		this.navCtrl.push(RegisterPage);
+	}
+	recuperar(){
+		this.navCtrl.push(RecuperarPage);
 	}
 }
