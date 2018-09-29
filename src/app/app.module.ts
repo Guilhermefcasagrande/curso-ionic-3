@@ -13,8 +13,9 @@ import { RecuperarPage } from '../pages/recuperar/recuperar';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 
+//inserir apiKey
 var firebaseConfig = {
-  apiKey: "AIzaSyDePzFL9G45EKEcC8xqY01ppxEDhWoM_PQ",
+  apiKey: "",
   authDomain: "nutri-7978e.firebaseapp.com",
   databaseURL: "https://nutri-7978e.firebaseio.com",
   projectId: "nutri-7978e",
