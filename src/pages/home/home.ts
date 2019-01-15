@@ -6,6 +6,8 @@ import { RecuperarPage } from '../recuperar/recuperar';
 
 import { AngularFireAuth } from 'angularfire2/auth';
 
+import firebase from 'firebase';
+
 import { Users } from './users';
 
 @Component({
@@ -60,5 +62,12 @@ export class HomePage {
 	}
 	recuperar(){
 		this.navCtrl.push(RecuperarPage);
+	}
+
+	loginWithFacebook(){
+		this.fire.auth.signInWithPopup(new firebase.auth.FacebookAuthProvider())
+		.then(res => {
+			this.navCtrl.setRoot(DicasPage);
+		});
 	}
 }
