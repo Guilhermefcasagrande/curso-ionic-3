@@ -70,4 +70,22 @@ export class HomePage {
 			this.navCtrl.setRoot(DicasPage);
 		});
 	}
+
+	loginVisitante(){
+		let toast = this.toatsCtrl.create({duration: 2000, position: 'bottom'});
+
+		this.fire.auth.signInAnonymously()
+		.then(data=>{
+			this.navCtrl.setRoot(DicasPage);
+		})
+		.catch((error: any) =>{
+			if(error.code == 'auth/operation-not-allowed'){
+				toast.setMessage('Modo de login não está habilitado');
+			} else {
+				console.log('Erro no login de visitante', error);
+			}
+			toast.present();
+		});
+
+	}
 }
