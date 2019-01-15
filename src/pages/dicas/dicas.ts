@@ -11,28 +11,10 @@ import { HomePage } from '../home/home';
 })
 export class DicasPage {
 
-	email: String;
-	fotoPerfil: boolean = false;
-	facebook = {
-		nome: '',
-		fotoUrl: ''
-	}
-
 	constructor(public navCtrl: NavController, 
 				public navParams: NavParams, 
 				public fire: AngularFireAuth, 
 				public toatsCtrl: ToastController) {
-		
-		this.email = fire.auth.currentUser.email;
-
-		this.facebook.nome = fire.auth.currentUser.displayName;
-		this.facebook.fotoUrl = fire.auth.currentUser.photoURL;
-
-		if(this.facebook.fotoUrl == null){
-			this.fotoPerfil = false;
-		} else{
-			this.fotoPerfil = true;
-		}
 					
 	}
 
