@@ -85,4 +85,13 @@ export class DicasPage {
 		});
 	}
 
+	doRefresh(refresh){
+		// Chama a mesma página novamente
+		this.navCtrl.setRoot(this.navCtrl.getActive().component);
+
+		setTimeout(() => {
+			refresh.complete();
+		}, 2000);
+	}
+
 }
