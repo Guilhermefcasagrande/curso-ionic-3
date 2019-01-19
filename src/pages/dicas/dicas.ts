@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ToastController, LoadingController } from 'ionic-angular';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { HomePage } from '../home/home';
+import { PostPage } from './../post/post';
+
 import { WordpressService } from './../../services/wordpress.service';
 
 
@@ -56,5 +58,11 @@ export class DicasPage {
 		toast.present();
 
 		this.navCtrl.setRoot(HomePage);
+	}
+
+	postTapped(event, post){
+		this.navCtrl.push(PostPage, {
+			item:post
+		});
 	}
 }
